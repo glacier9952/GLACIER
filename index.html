@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>PUSHER CHAT APP</title>
-  <link href="https://glacier.rf.gd/test/bootstrap.css" rel="stylesheet">
+  <link href="https://glacierprivatechatserver.000webhostapp.com/bootstrap.css" rel="stylesheet">
   <style>
-    @import url('https://glacier.rf.gd/test/font/devnagri-font.css');
+    @import url('https://glacierprivatechatserver.000webhostapp.com/font/devnagri-font.css');
 	*{
 	font-family: Poppins;
 	}
@@ -80,7 +80,7 @@
           return;
         }
 
-        $.post('https://glacier.rf.gd/test/send.php', { name: name, message: message });
+        $.post('https://glacierprivatechatserver.000webhostapp.com/send.php', { name: name, message: message });
         $('#message').val('');
         $('#error-msg').hide();
       }

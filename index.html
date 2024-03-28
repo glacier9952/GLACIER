@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <title>License Key</title>
+  <link rel='stylesheet' href='assets/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+<body>
+
+<header class="header">
+		<div class="logo ml-auto mr-auto py-4 w-100 text-center"><img alt="Logo" class="logo max-w-220px img-fluid" src="assets/images/license-key.png" width="100%"></div>
+		<h6 class="page-heading text-center px-3 py-1 bg-light border-top border-bottom"></h6>
+	</header>
+	<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+	  <form action="verify_license.php" method="post" class="needs-validation">
+        <p class="help-text pt-3 max-w-600px mx-auto">Please enter your license key to proceed. <br>
+		If you face any difficulty, feel free to <a href="#">contact us</a> for assistance.</p>
+        <div class="form-group form-group-name max-w-600px mx-auto">
+          <label class="label-form-control d-block required" for="firstname">License Key</label> 
+          <input class="form-control form-control-firstname w-100 required" placeholder="" type="text" name="license" id="license" autocomplete="off" required>
+        </div><!-- end bootstrap form-group -->
+        <div class="form-group form-group-submit max-w-600px mx-auto mt-5">
+          <input class="btn btn-primary" type="submit" value="Submit">
+        </div><!-- end bootstrap form-group -->
+      </form>
+    </div><!-- end bootstrap col -->
+  </div><!-- end bootstrap row -->
+</div><!-- end bootstrap container -->
+<!-- partial -->
+<script src='assets/js/jquery.min.js'></script>
+<script src='assets/js/input-mask.js'></script>
+<script  src="assets/js/script.js"></script>
+
+</body>
+</html>

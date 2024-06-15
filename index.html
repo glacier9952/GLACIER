@@ -1,97 +1,32 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-  <title>License Key</title>
-  <link rel='stylesheet' href='assets/css/bootstrap.min.css'>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <script src="assets/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>LICENSE VERIFICATION</title>
+<style>
+    body, html {
+        height: 100%;
+        margin: 0;
+        overflow: hidden; /* Hide scrollbar */
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    iframe {
+        width: 100%;
+        height: 100%;
+        border: none; /* Remove iframe border */
+    }
+</style>
 </head>
 <body>
 
-<header class="header">
-		<div class="logo ml-auto mr-auto py-4 w-100 text-center">
-		<img alt="GLACIER" class="logo max-w-220px img-fluid" src="assets/images/license-key.png" width="100%">
-		</div>
-		<h6 class="page-heading text-center px-3 py-1 bg-light border-top border-bottom"></h6>
-	</header>
-	<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-	  <form action="https://glacier.rf.gd/single-device-license.php" method="post" class="needs-validation">
-        <p class="help-text pt-3 max-w-600px mx-auto"><font color="red">Please do not clear your website cookies, as you will not be able to use the same license on this device again.</font><br>
-		Please enter your license key to proceed. <br>
-		If you face any difficulty, feel free to <a href="#">contact us</a> for assistance.</p>
-        <div class="form-group form-group-name max-w-600px mx-auto">
-          <label class="label-form-control d-block required" for="firstname">License Key</label> 
-          <input class="form-control form-control-firstname w-100 required" placeholder="" type="text" name="license" id="license" autocomplete="off" required>
-		  <input type="hidden" id="device_id" name="device_id">
-        </div><!-- end bootstrap form-group -->
-        <div class="form-group form-group-submit max-w-600px mx-auto mt-5">
-          <input class="btn btn-primary" type="submit" value="Submit">
-        </div><!-- end bootstrap form-group -->
-      </form>
-    </div><!-- end bootstrap col -->
-  </div><!-- end bootstrap row -->
-</div><!-- end bootstrap container -->
+<iframe src="https://glacier.rf.gd/multiple-device-license/index.php" title="LICENSE" scrolling="yes" style="overflow-x: hidden; overflow-y: auto; scrollbar-width: none; -ms-overflow-style: none;"></iframe>
 
-<script>
-        function openDatabase() {
-            return new Promise((resolve, reject) => {
-                let request = indexedDB.open('DeviceDatabase', 1);
-
-                request.onupgradeneeded = function(event) {
-                    let db = event.target.result;
-                    db.createObjectStore('DeviceStore', { keyPath: 'id' });
-                };
-
-                request.onsuccess = function(event) {
-                    resolve(event.target.result);
-                };
-
-                request.onerror = function(event) {
-                    reject('Database error: ' + event.target.errorCode);
-                };
-            });
-        }
-
-        function getDeviceID(db) {
-            return new Promise((resolve, reject) => {
-                let transaction = db.transaction(['DeviceStore'], 'readwrite');
-                let objectStore = transaction.objectStore('DeviceStore');
-                let getRequest = objectStore.get('deviceID');
-
-                getRequest.onsuccess = function(event) {
-                    if (getRequest.result) {
-                        resolve(getRequest.result.value);
-                    } else {
-                        let deviceID = 'device-' + Math.random().toString(36).substr(2, 16);
-                        let addRequest = objectStore.add({ id: 'deviceID', value: deviceID });
-
-                        addRequest.onsuccess = function() {
-                            resolve(deviceID);
-                        };
-
-                        addRequest.onerror = function() {
-                            reject('Add request error');
-                        };
-                    }
-                };
-
-                getRequest.onerror = function() {
-                    reject('Get request error');
-                };
-            });
-        }
-
-        openDatabase().then(db => {
-            return getDeviceID(db);
-        }).then(deviceID => {
-            document.getElementById('device_id').value = deviceID;
-        }).catch(error => {
-            console.error(error);
-        });
-    </script>
 </body>
 </html>
